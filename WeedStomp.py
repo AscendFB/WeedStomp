@@ -180,6 +180,7 @@ class WeedStomp(object):
 
 
 if __name__ == "__main__":
+    log("A",message_type ='info', title = 'WeedStomp')
     a = WeedStomp()
 
     a.load_weeds_from_web_app()

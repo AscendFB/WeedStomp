@@ -28,6 +28,9 @@
     <Compile Include="sequence_commands.py" />
     <Compile Include="sequence_writer.py" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="manifest.json" />
+  </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
 </Project>

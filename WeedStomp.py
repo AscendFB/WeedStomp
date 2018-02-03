@@ -182,6 +182,8 @@ class WeedStomp(object):
 if __name__ == "__main__":
     a = WeedStomp()
 
+    log("Starting", message_type= 'info',title='WeedStomp')
+
     a.load_weeds_from_web_app()
     a.count_downloaded_plants()
     a.load_sequences_from_app()

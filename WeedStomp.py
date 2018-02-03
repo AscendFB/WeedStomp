@@ -40,7 +40,7 @@ class WeedStomp(object):
             api_token = os.environ['API_TOKEN']
         except KeyError:
  #           api_token = 'x.eyJpc3MiOiAiLy9zdGFnaW5nLmZhcm1ib3QuaW86NDQzIn0.x'
-             api_token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1bmtub3duIiwic3ViIjoxNywiaWF0IjoxNTEzMTgwMjExLCJqdGkiOiJhMDJiYTE4Yy03ZTIyLTQ4NDItOGQ2MS1jZTEwYjcwNjUyMjkiLCJpc3MiOiIvL215LmZhcm1ib3QuaW86NDQzIiwiZXhwIjoxNTE2NjM2MjExLCJtcXR0IjoiYnJpc2stYmVhci5ybXEuY2xvdWRhbXFwLmNvbSIsIm1xdHRfd3MiOiJ3c3M6Ly9icmlzay1iZWFyLnJtcS5jbG91ZGFtcXAuY29tOjQ0My93cy9tcXR0Iiwib3NfdXBkYXRlX3NlcnZlciI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvZmFybWJvdC9mYXJtYm90X29zL3JlbGVhc2VzL2xhdGVzdCIsImZ3X3VwZGF0ZV9zZXJ2ZXIiOiJERVBSRUNBVEVEIiwiYm90IjoiZGV2aWNlXzE3Iiwidmhvc3QiOiJ2YnpjeHNxciJ9.BQkJ491qvx4r3ZsbPyOZuMhrjs8ulIo1y4odVmJBMTCw11w3GYlASSwudyvVNv4tn9VpsDwbMPV4OOiCozDu0afiPuohH7eKqR-IEB1L7wP5pEkYYpo_xvUNfe6p86ftJd7k-kkM0HNu8NWZrl4YCPjAct1c95PwIKRz2ksvHCxE0QAqddDiwlGcxvs4CvVog5ezNaaQ3PpJdNjR9Q1Co_LtOj2MXl9mWnf6ampibaFVUOk0L1qxYDtiAUu906u4oBCO9WrabeMgUaEnGPfUJWnbxzTQd5ndKOVFDK1QEx3lbmSGiUQrAmrahJk-EhpqvMQyZ_Gj8HNA0T5kBP6z9g'
+            api_token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1bmtub3duIiwic3ViIjoxNywiaWF0IjoxNTE3Njc4NjYwLCJqdGkiOiJhZDNhNmY1OS0zOGM4LTQ5NjctODdhZC03ZjQ4NjQ1MmQ3OGQiLCJpc3MiOiIvL215LmZhcm1ib3QuaW86NDQzIiwiZXhwIjoxNTIxMTM0NjYwLCJtcXR0IjoiYnJpc2stYmVhci5ybXEuY2xvdWRhbXFwLmNvbSIsImJvdCI6ImRldmljZV8xNyIsInZob3N0IjoidmJ6Y3hzcXIiLCJtcXR0X3dzIjoid3NzOi8vYnJpc2stYmVhci5ybXEuY2xvdWRhbXFwLmNvbTo0NDMvd3MvbXF0dCIsIm9zX3VwZGF0ZV9zZXJ2ZXIiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2Zhcm1ib3QvZmFybWJvdF9vcy9yZWxlYXNlcy9sYXRlc3QiLCJpbnRlcmltX2VtYWlsIjoiaGVoZTEyMzRAaG90bWFpbC5kZSIsImZ3X3VwZGF0ZV9zZXJ2ZXIiOiJERVBSRUNBVEVEIiwiYmV0YV9vc191cGRhdGVfc2VydmVyIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9GYXJtQm90L2Zhcm1ib3Rfb3MvcmVsZWFzZXMvOTUxMDc2NSJ9.p5wp-F54ke4Ftdn2Q-mbrgl--ZeMoW55YfmiSF_CCflkdDhb_GY9S_kfpHYeuruxyv0fcu010M5-k9QrT2JSFGUUDcIIBn2XOhI_TFAo0GalC3i--4_m6EwgLkX1_zOQHfuPKzKtK3EhSH9f4fi2x3PmXxE3kI0ule07Z3gyEpmW8mf-FgaDoB_rT8sLtIxC90AkL4zcLo2A1F2Atf734rVu_rq8ZN9C6DxQ-9he3OIdf62_FaSUgknxUy45b9aE4CxpEI243i9kKzOMRC_hMNBJet-FB1fAteACNIRiSWq2tL_aa0gJ-2_BzQJ_2Q-9KF9xAETv9wk2f9MiKDQM7Q'
         try:
             encoded_payload = api_token.split('.')[1]
             encoded_payload += '=' * (4 - len(encoded_payload) % 4)
@@ -91,7 +91,7 @@ class WeedStomp(object):
                         'x': point['x'],
                         'y': point['y'],})
             self.plants['known'] = plants
-            self.sorted_coords = sorted(self.plants['known'])
+            self.sorted_coords = sorted(self.plants['known'], key=lambda x:sorted(x.keys()))
             print (self.sorted_coords)
             print (plants)
 
